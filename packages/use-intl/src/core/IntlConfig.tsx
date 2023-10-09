@@ -10,6 +10,18 @@ import {AbstractIntlMessages, RichTranslationValues} from '.';
 type IntlConfig<Messages = AbstractIntlMessages> = {
   /** A valid Unicode locale tag (e.g. "en" or "en-GB"). */
   locale: string;
+  /**
+   * A key-value pair of routing locale and the locale used in the formatter. 
+   * Commonly used to avoid hydration mismatches between server and client on fallbacks options.
+   * @example 
+   * ```js
+   * {
+   *  en: 'en-US',
+   *  de: 'de-DE',
+   * }
+   * ```
+   */
+  formatingLocales?: Record<string, string>;
   /** Global formats can be provided to achieve consistent
    * formatting across components. */
   formats?: Partial<Formats>;
